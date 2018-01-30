@@ -1,0 +1,13 @@
+<div>
+	user-list works!
+	sort by: 
+	<select [(ngModel)]="sortBy" (ngModelChange)="handleSortingChange($event)">
+		<option *ngFor="let opt of sortingOptions; let i = index" [ngValue]=opt>{{opt.text}}</option>
+	</select>
+
+	<ul>
+		<li *ngFor="let user of users">
+			<user-list-item [user]="user" [onDeleteMe]="handleUserDeletion($event)"></user-list-item>
+		</li>
+	</ul>
+</div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { User } from '../dtos/UserDto';
 
 @Component({
 	selector: 'user-list-item',
@@ -6,11 +7,5 @@ import { Component } from '@angular/core';
 	styleUrls: ['./user.list.item.component.css']
 })
 export class  UserListItemComponent {
-	user = {
-		name: "uri kutner",
-		userPicture: "picture.com",
-		email: "uri@email.com",
-		age: 23,
-		isActive: true
-	}
+	@Input() user: User;
 }
