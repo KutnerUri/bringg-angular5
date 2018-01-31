@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { User } from '../dtos/UserDto';
+import { UserRepository } from '../user.repository';
 
 var a1 = 1;
 
@@ -13,11 +14,11 @@ export class UserListItemComponent implements OnInit {
 	@Input() index: number;
 	@Output() onDeleteMe: EventEmitter<number> = new EventEmitter<number>();
 
-	handleDelete() {
-		this.onDeleteMe.emit(this.index);
-	}
+	constructor(private userRepository: UserRepository){}
 
-	constructor() { }
+	handleDelete() {
+		this.userRepository.deleteUser(this.index);
+	}
 
 	ngOnInit() {
 	}

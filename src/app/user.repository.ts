@@ -20,6 +20,10 @@ export class UserRepository {
 		return this.users;
 	}
 
+	deleteUser(userIndex: number) {
+		this.users.splice(userIndex, 1);
+	}
+
 	canAddNewUser() {
 		return 0 < this.extraUsers.length;
 	}

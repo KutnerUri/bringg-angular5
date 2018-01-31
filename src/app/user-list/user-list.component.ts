@@ -41,10 +41,6 @@ export class UserListComponent implements OnInit {
 		this.sortUsers(selectedOption.compareFunc);
 	}
 
-	handleUserDeletion(userIndex) {
-		this.users.splice(userIndex, 1);
-	}
-
 	handleAddNewUser() {
 		this.userRepository.addNewUser();
 		this.canAddNewUser = this.userRepository.canAddNewUser();
