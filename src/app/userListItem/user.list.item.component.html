@@ -3,13 +3,13 @@
 	(mouseenter)="handleUserHover(user)"
 	(mouseleave)="handleStopUserHover(user)">
 
-	<div>{{user.name | titlecase}}</div>
+	<div class="title">{{user.name | titlecase}}</div>
 	<span class="delete-btn" (click)="handleDelete()">X</span>
-	<img alt="{{user.name}}'s picture" src="{{user.picture}}" />
+	<img class="user-image" alt="{{user.name}}'s picture" src="{{user.picture}}" />
 	<div class="content">
 		<span>{{user.email}}</span>
 		<br/>
-		<span>{{user.age}}</span>
+		<span>age: {{user.age}}</span>
 		<br/>
 		<span>active: {{user.isActive}}</span>
 	</div>

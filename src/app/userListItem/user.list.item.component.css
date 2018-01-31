@@ -1,11 +1,26 @@
 .user-details {
 	border: 1px solid black;
 	margin-bottom: 3px;
+	width: 500px;
 }
 
 .user-details.highlighted {
-	border: 1px solid black;
 	background: #FFFBCC;
+}
+
+.user-details .user-image {
+	display: inline-block;
+	height: 80px;
+	width: 80px;
+	vertical-align: top;
+}
+
+.user-details .title {
+	border-bottom: 1px solid black;
+}
+
+.user-details .content {
+	display: inline-block;
 }
 
 .user-details .delete-btn{

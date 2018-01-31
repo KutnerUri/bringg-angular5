@@ -1,0 +1,8 @@
+<span class="user-pin"
+	[ngStyle]="{'top': top + '%', 'left': left + '%'}"
+	[ngClass]="{'highlighted': !!user.isHighlighted}"
+	(mouseenter)="handleUserHover(user)"
+	(mouseleave)="handleStopUserHover(user)"
+>
+&middot;
+</span>
