@@ -1,5 +1,7 @@
 <div class="user-details"
-	[ngClass]="{'highlighted': !!user.isHighlighted}">
+	[ngClass]="{'highlighted': !!user.isHighlighted}"
+	(mouseenter)="handleUserHover(user)"
+	(mouseleave)="handleStopUserHover(user)">
 
 	<div>{{user.name | titlecase}}</div>
 	<span class="delete-btn" (click)="handleDelete()">X</span>

@@ -2,8 +2,6 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { User } from '../dtos/UserDto';
 import { UserRepository } from '../user.repository';
 
-var a1 = 1;
-
 @Component({
 	selector: 'user-list-item',
 	templateUrl: './user.list.item.component.html',
@@ -20,6 +18,13 @@ export class UserListItemComponent implements OnInit {
 		this.userRepository.deleteUser(this.index);
 	}
 
-	ngOnInit() {
+	handleUserHover(user: User) {
+		user.isHighlighted = true;
 	}
+
+	handleStopUserHover(user: User) {
+		user.isHighlighted = false;
+	}
+
+	ngOnInit() {}
 }

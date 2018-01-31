@@ -21,5 +21,6 @@
 
 .user-pin.highlighted {
 	background: #FFFBCC;
+	border: 1px solid black;
 	border-radius: 100%;
 }
