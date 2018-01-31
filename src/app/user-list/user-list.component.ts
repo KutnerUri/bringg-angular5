@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../dtos/UserDto';
 
 @Component({
@@ -7,6 +7,10 @@ import { User } from '../dtos/UserDto';
 	styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+	@Input() users: User[];
+	constructor() { }
+	ngOnInit() { }
+
 	sortingOptions: SortingOption[] = [
 		{
 			text: "age",
@@ -19,35 +23,17 @@ export class UserListComponent implements OnInit {
 	]
 	sortBy: SortingOption;
 
-	users: User[] = [
-		{
-			name: 'aaa',//uri kutner
-			userPicture: 'picture.com',
-			email: 'uri@email.com',
-			age: 23,
-			isActive: true
-		},
-		{
-			name: 'b', //ner irukut
-			userPicture: 'picturesss.com',
-			email: 'irkut@email.com',
-			age: 22,
-			isActive: true
-		}
-	];
 
-	constructor() {
-	}
-
-	ngOnInit() {
+	sortUsers(compareFunc) {
+		this.users.sort(compareFunc);
 	}
 
 	handleSortingChange(selectedOption) {
 		this.sortUsers(selectedOption.compareFunc);
 	}
 
-	sortUsers(compareFunc) {
-		this.users.sort(compareFunc);
+	handleUserDeletion(userIndex) {
+		this.users.splice(userIndex, 1);
 	}
 }
 

@@ -6,8 +6,8 @@
 	</select>
 
 	<ul>
-		<li *ngFor="let user of users">
-			<user-list-item [user]="user" [onDeleteMe]="handleUserDeletion($event)"></user-list-item>
+		<li *ngFor="let user of users; let i = index">
+			<user-list-item [user]="user" [index]=i (onDeleteMe)="handleUserDeletion($event)"></user-list-item>
 		</li>
 	</ul>
 </div>
