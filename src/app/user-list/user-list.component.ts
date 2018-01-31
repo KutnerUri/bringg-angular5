@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../dtos/UserDto';
+import { UserRepository } from '../user.repository';
 
 @Component({
 	selector: 'app-user-list',
@@ -7,9 +8,7 @@ import { User } from '../dtos/UserDto';
 	styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-	@Input() users: User[];
-	constructor() { }
-	ngOnInit() { }
+	@Input() users: User[] = [];
 
 	sortingOptions: SortingOption[] = [
 		{
@@ -22,7 +21,17 @@ export class UserListComponent implements OnInit {
 		}
 	]
 	sortBy: SortingOption;
+	canAddNewUser: boolean = false;
 
+	constructor(private userRepository: UserRepository) { }
+	ngOnInit() {
+		this.userRepository.loadUsers()
+			.then(function () {
+				this.users = this.userRepository.users;
+				this.canAddNewUser = this.userRepository.canAddNewUser();
+			}.bind(this));
+
+	}
 
 	sortUsers(compareFunc) {
 		this.users.sort(compareFunc);
@@ -34,6 +43,11 @@ export class UserListComponent implements OnInit {
 
 	handleUserDeletion(userIndex) {
 		this.users.splice(userIndex, 1);
+	}
+
+	handleAddNewUser() {
+		this.userRepository.addNewUser();
+		this.canAddNewUser = this.userRepository.canAddNewUser();
 	}
 }
 

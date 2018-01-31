@@ -1,9 +1,11 @@
 <div>
-	user-list works!
-	sort by: 
-	<select [(ngModel)]="sortBy" (ngModelChange)="handleSortingChange($event)">
-		<option *ngFor="let opt of sortingOptions; let i = index" [ngValue]=opt>{{opt.text}}</option>
-	</select>
+	<div>
+		<button [disabled]="!canAddNewUser" (click)="handleAddNewUser()">+ add user</button>
+		sort by:
+		<select [(ngModel)]="sortBy" (ngModelChange)="handleSortingChange($event)">
+			<option *ngFor="let opt of sortingOptions; let i = index" [ngValue]=opt>{{opt.text}}</option>
+		</select>
+	</div>
 
 	<ul>
 		<li *ngFor="let user of users; let i = index">

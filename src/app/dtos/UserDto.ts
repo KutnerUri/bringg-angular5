@@ -1,6 +1,6 @@
 export class User {
 	name: string;
-	userPicture: string;
+	picture: string;
 	email: string;
 	age: number;
 	isActive: boolean;
