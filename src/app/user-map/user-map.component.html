@@ -1,0 +1,10 @@
+<div class="map-container">
+	<span class="user-pin" *ngFor="let user of users"
+		[ngStyle]="{'top': getUserTop(user) + '%', 'left': getUserLeft(user) + '%'}"
+		[ngClass]="{'highlighted': !!user.isHighlighted}"
+		(mouseenter)="handleUserHover(user)"
+		(mouseleave)="handleStopUserHover(user)"
+		>
+		x
+	</span>
+</div>

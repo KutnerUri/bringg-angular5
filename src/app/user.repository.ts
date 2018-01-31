@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { User } from './dtos/UserDto';
 
+const VISIBLE_USERS = 100;
+
 @Injectable()
 export class UserRepository {
 	private serverFetcher: ServerFetcher = new ServerFetcher();
 	constructor() { }
 
-	fetchPromise: Promise<any>;
-	users: User[] = [];
-	extraUsers: User[] = [];
+	private fetchPromise: Promise<any>;
+	private users: User[] = [];
+	private extraUsers: User[] = [];
 
 	loadUsers(): Promise<any> {
 		if (this.fetchPromise) return this.fetchPromise;
@@ -37,8 +39,8 @@ export class UserRepository {
 		var promise = this.serverFetcher.loadFromServer();
 
 		promise.then(data => {
-			this.users = data.slice(0, 100);
-			this.extraUsers = data.slice(99);
+			this.users = data.slice(0, VISIBLE_USERS);
+			this.extraUsers = data.slice(VISIBLE_USERS - 1);
 		});
 
 		return promise;

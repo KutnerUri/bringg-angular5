@@ -1,0 +1,25 @@
+.map-container {
+	position: relative;
+	height: 300px;
+	width: 300px;
+	border: 1px solid black;
+	background-image: url(/assets/map.png);
+	background-size: cover;
+}
+
+.user-pin {
+	position: absolute;
+
+	width: 15px;
+	height: 15px;
+	font-size: 15px;
+	line-height: 15px;
+    display: inline-block;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.user-pin.highlighted {
+	background: #FFFBCC;
+	border-radius: 100%;
+}

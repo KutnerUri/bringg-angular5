@@ -1,5 +1,11 @@
 .user-details {
 	border: 1px solid black;
+	margin-bottom: 3px;
+}
+
+.user-details.highlighted {
+	border: 1px solid black;
+	background: #AAAB77;
 }
 
 .user-details .delete-btn{

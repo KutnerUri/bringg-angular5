@@ -7,9 +7,9 @@
 		</select>
 	</div>
 
-	<ul>
-		<li *ngFor="let user of users; let i = index">
-			<user-list-item [user]="user" [index]=i></user-list-item>
-		</li>
-	</ul>
+	<div>
+		<user-list-item *ngFor="let user of users; let i = index"
+			[user]="user" [index]=i>
+		</user-list-item>
+	</div>
 </div>

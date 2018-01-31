@@ -1,4 +1,6 @@
-<div class="user-details">
+<div class="user-details"
+	[ngClass]="{'highlighted': !!user.isHighlighted}">
+
 	<div>{{user.name | titlecase}}</div>
 	<span class="delete-btn" (click)="handleDelete()">X</span>
 	<img alt="{{user.name}}'s picture" src="{{user.picture}}" />

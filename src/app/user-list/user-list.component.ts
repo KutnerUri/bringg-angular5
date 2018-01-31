@@ -3,7 +3,7 @@ import { User } from '../dtos/UserDto';
 import { UserRepository } from '../user.repository';
 
 @Component({
-	selector: 'app-user-list',
+	selector: 'user-list',
 	templateUrl: './user-list.component.html',
 	styleUrls: ['./user-list.component.css']
 })

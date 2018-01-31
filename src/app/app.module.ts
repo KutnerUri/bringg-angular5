@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { UserListItemComponent } from './userListItem/user.list.item.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserRepository } from './user.repository';
+import { UserMapComponent } from './user-map/user-map.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		UserListItemComponent,
-		UserListComponent
+		UserListComponent,
+		UserMapComponent
 	],
 	imports: [
 		BrowserModule,
